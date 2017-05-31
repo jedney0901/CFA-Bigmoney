@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from '../navbar/Navbar'
 import AccountSum from '../accountSum/AccountSum'
-import TransactionData from '../data/transactionData'
+import transactionData from '../data/transactionData'
 
 class App extends Component {
   constructor(props) {
@@ -59,11 +59,12 @@ class App extends Component {
   getTransactionData() {
     this.setState({ accounts: {
       transactions: {
-        date: transactionData.date
-        amount: transactionData.amount
-        description: transactionData.description
+        date: this.transactionData.date,
+        amount: this.transactionData.amount,
+        description: this.transactionData.description
       }
     }})
+    console.log(this.account.transactionData.date)
   }
 
   incomeCalc() {
