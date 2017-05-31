@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
 
-class App extends Component {
+
+class AccountSum extends Component {
+
   render() {
+
     return (
-      <div className="App">
+      <div>
         Hello world
       </div>
     );
   }
 }
 
-export default App;
+export default AccountSum;
