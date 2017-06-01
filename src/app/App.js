@@ -3,11 +3,13 @@ import './App.css';
 import Navbar from '../navbar/Navbar'
 import AccountSum from '../accountSum/AccountSum'
 import transactionData from '../data/transactionData'
+import TransactionDisp from '../transactionData/transactionsDisp'
 
 class App extends Component {
   constructor(props) {
   super(props);
-
+  // console.log('data', transactionData);
+  this.data = transactionData
   this.state = {
     account: {
       _id: {},
@@ -18,10 +20,11 @@ class App extends Component {
       accountName: "Joshua Edney",
       transactions: [
         {
-          amount: 400,
-          transactionType: "EFT",
-          description: "Purchased the entire class coffee and bacon egg rolls",
-          date: Date.now()
+          date: "Enter a date",
+          amount: 0,
+          description: "Enter a description"
+          // transactionType: "EFT",
+
         }
       ]
     },
@@ -53,30 +56,28 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getTransactionData
+    this.getTransactionData()
   };
 
   getTransactionData() {
-    this.setState({ accounts: {
-      transactions: {
-        date: this.transactionData.date,
-        amount: this.transactionData.amount,
-        description: this.transactionData.description
-      }
-    }})
-    console.log(this.account.transactionData.date)
-  }
+    this.setState({ account: { transactions: this.data }})
+}
+
+
 
   incomeCalc() {
 
   }
+
   render() {
     return (
       <div className="App">
         <Navbar/>
         <AccountSum bankData={this.state.account}/>
-
+        {/* <TransactionData transactions={this.state.account.transactions}/>
+        */}
         Hello world
+        <TransactionDisp data={this.state.account.transactions}/>
       </div>
     )
   }
