@@ -71,13 +71,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="row">
         <Navbar/>
-        <AccountSum bankData={this.state.account}/>
-        {/* <TransactionData transactions={this.state.account.transactions}/>
-        */}
-        Hello world
-        <TransactionDisp data={this.state.account.transactions}/>
+        <div className="container">
+          <AccountSum bankData={this.state.account}/>
+          {/* <TransactionData transactions={this.state.account.transactions}/>
+          */}
+          Hello world
+          <TransactionDisp data={this.state.account.transactions}/>
+        </div>
       </div>
     )
   }

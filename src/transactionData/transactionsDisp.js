@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import TopTenTransactions from './topTenTransactions'
 
 
 class TransactionDisp extends Component {
+  constructor(props) {
+  super(props);
+
+  this.state = {
+    transactionType: "Standard Payment",
+    transactionGroup: "General"
+  }
+}
 
 render() {
 
     return (
       <div>
-        {this.props.data.map(t =>
-          <li>{t.description}, {t.amount}, {t.date}</li>
-        )}
+        <TopTenTransactions data={this.props.data}/>
       </div>
     )
   }
