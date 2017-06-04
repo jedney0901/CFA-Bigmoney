@@ -1,0 +1,37 @@
+import React, { Component } from 'react';
+import { Table } from 'react-bootstrap';
+
+class TopTenTransactions extends Component {
+
+render() {
+
+    return (
+      <div>
+        <h1>Previous 10 transactions</h1>
+        <Table responsive striped bordered>
+          <thead>
+            <tr>
+              <th className="col-xs-5 col-sm-2 col-md-2">Date</th>
+              <th className="col-xs-6 col-sm-3 col-md-3">Amount</th>
+              <th className="col-xs-12 col-sm-6 col-md-6">Description</th>
+              <th className="col-xs-1 col-sm-1 col-md-1">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.transactionData.slice(0, 10).map((t, index) =>
+              <tr key={index}>
+                <td>{t.date}</td>
+                <td>{t.amount}</td>
+                <td>{t.description}</td>
+                <td><button>Categorise</button></td>
+              </tr>
+            )}
+          </tbody>
+        </Table>
+
+      </div>
+    )
+  }
+}
+
+export default TopTenTransactions;
