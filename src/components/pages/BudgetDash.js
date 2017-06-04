@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
-import TopTenTransactions from './topTenTransactions'
+import TopTenTransactions from '../subcomponents/topTenTransactions'
 
 
 class TransactionDisp extends Component {
   constructor(props) {
   super(props);
 
-  this.state = {
-    transactionType: "Select",
-    transactionGroup: "Select",
-    transactionPriority: "Choose the level of income you want to assign",
-    transactionPurchaseDate: "Choose the date you want to purchase this by"
-
   }
-}
 
-  getPurchaseCycles() {
-    // Need to loop over each item and bring in each bill, or purchase in order.
-    // This needs to prioritise each item by date and then group them by each week with a heading that says 'Week or Month as a grouping type'
-    // This then needs to be fed into a scrolling dashboard which the user can see.
+
+
+  // getPurchaseCycles() {
+  //   // Need to filter all bills and transactionData items together and then filter them if they are reocurring.
+  //   // This needs to prioritise each item by date and then group them by each week with a heading that says 'Week or Month as a grouping type'
+  //   // This then needs to be fed into a scrolling dashboard which the user can see.
+  //   var purchaseData = purchaseData.filter( =>
+  //   transactionData.date && billsData.date =< Date.now()
+  //
+  //   var transactionData = this.props.transactionData
+  //   var billsData = this.props.billsData
+  //   )
+  // }
+
+  categoriseData() {
+
   }
 
   upDateItemCycle() {
@@ -31,7 +36,6 @@ class TransactionDisp extends Component {
   priorityList() {
     // This will loop over all want items based on their priority level showing the user what items they currently have in them and the basic information.
     // This needs to list all items in the priority list based on their priority level and list all the features including projected purchase time,
-
   }
 
 
@@ -43,13 +47,15 @@ class TransactionDisp extends Component {
 
 
 
-
 render() {
 
     return (
       <div>
-        <TopTenTransactions data={this.props.data}/>
+        <TopTenTransactions
+          transactionData={this.props.transactionData}/>
+        {this.renderPrevTransactions}
       </div>
+
     )
   }
 }

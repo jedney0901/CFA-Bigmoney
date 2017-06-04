@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
-class TopTenTransactions extends Component {
+class UpcomingBills extends Component {
 
 render() {
 
     return (
       <div>
+        <h1>Previous 10 transactions</h1>
         <Table responsive striped bordered>
           <thead>
             <tr>
@@ -16,16 +17,15 @@ render() {
             </tr>
           </thead>
           <tbody>
-            {this.props.data.slice(0, 10).map(t =>
-              <tr>
-                <td>{t.date}</td>
-                <td>${t.amount}</td>
+            {this.props.transactionData.filter(bills =  bills.frequencyOfTransaction == "Yes"
+              <tr key={index}>
+                <td>{t.dateOfPay}</td>
+                <td>{t.amount}</td>
                 <td>{t.description}</td>
               </tr>
             )}
           </tbody>
         </Table>
-
       </div>
     )
   }
