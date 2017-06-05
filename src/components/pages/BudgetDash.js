@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import TopTenTransactions from '../subcomponents/topTenTransactions'
+import TopTenTransactions from '../subcomponents/topTenTransactions';
+import { Button } from 'react-bootstrap';
 
 
 class TransactionDisp extends Component {
   constructor(props) {
   super(props);
 
-  }
+    this.state = {
+      clicked: false
+    }
 
-
-
-  // getPurchaseCycles() {
-  //   // Need to filter all bills and transactionData items together and then filter them if they are reocurring.
-  //   // This needs to prioritise each item by date and then group them by each week with a heading that says 'Week or Month as a grouping type'
-  //   // This then needs to be fed into a scrolling dashboard which the user can see.
-  //   var purchaseData = purchaseData.filter( =>
-  //   transactionData.date && billsData.date =< Date.now()
-  //
-  //   var transactionData = this.props.transactionData
-  //   var billsData = this.props.billsData
-  //   )
-  // }
-
-  categoriseData() {
+    this.handleClick = this.handleClick.bind(this);
 
   }
+
+  handleClick() {
+    this.setState({
+      clicked: true
+    });
+  }
+
 
   upDateItemCycle() {
     // Need to filter over each item and run the function AFTER the handlePriorityDrag OR if another item has been added/deleted.
@@ -53,7 +49,10 @@ render() {
       <div>
         <TopTenTransactions
           transactionData={this.props.transactionData}/>
-        {this.renderPrevTransactions}
+
+        <Button onClick={this.handleClick} />
+        {this.state.clicked ? <NewComponent /> : null}
+        
       </div>
 
     )

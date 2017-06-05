@@ -4820,6 +4820,13 @@ react-error-overlay@^1.0.7:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
+react-form@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-form/-/react-form-1.2.8.tgz#7a97a310635a32a238088f5afe722e7006abd1d7"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.5.8"
+
 react-overlays@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.0.tgz#531898ff566c7e5c7226ead2863b8cf9fbb5a981"
