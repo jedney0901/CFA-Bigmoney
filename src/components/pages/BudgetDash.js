@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
-import TopTenTransactions from '../subcomponents/topTenTransactions'
+import TopTenTransactions from '../subcomponents/topTenTransactions';
+import { Button } from 'react-bootstrap';
 
 
 class TransactionDisp extends Component {
   constructor(props) {
   super(props);
 
-  }
+    this.state = {
+      clicked: false
+    }
 
-
-
-
-
-  categoriseData() {
+    this.handleClick = this.handleClick.bind(this);
 
   }
+
+  handleClick() {
+    this.setState({
+      clicked: true
+    });
+  }
+
 
   upDateItemCycle() {
     // Need to filter over each item and run the function AFTER the handlePriorityDrag OR if another item has been added/deleted.
@@ -43,6 +49,10 @@ render() {
       <div>
         <TopTenTransactions
           transactionData={this.props.transactionData}/>
+
+        <Button onClick={this.handleClick} />
+        {this.state.clicked ? <NewComponent /> : null}
+        
       </div>
 
     )

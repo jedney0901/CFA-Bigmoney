@@ -89,10 +89,6 @@ class App extends Component {
 
   // End CRUD functions
 
-  // getLast10Transactions() {
-  //   this.state.account.transactions.slice(0, 10).map((t, index) => )
-  // }
-
   getUpComingBills() {
     var newarray = this.state.account.transactions.slice(0, 10).filter((b) => {
       return b.bill === "Yes" || b.frequencyOfTransaction !== "Once off"
@@ -105,6 +101,8 @@ class App extends Component {
   //   <li>{b.transaction.amount}</li>
   //   <li>{b.transaction.Description}</li>
   // </ul>
+
+
 // Sets the date structure to dd/mm/yyyyy
   setDateStructure(purchaseDate) {
     var d = purchaseDate;
@@ -126,29 +124,36 @@ class App extends Component {
       else if (transactions.frequencyOfTransaction === "Monthly") {
         purchaseDate.setDate(this.setDateStructure(purchaseDate.getMonth() + 1))}
 
+        else if (transactions.frequencyOfTransaction === "Monthly") {
+          purchaseDate.setDate(this.setDateStructure(purchaseDate.getMonth() + 1))}
+
       else if(transactions.frequencyOfTransaction === "Yearly") {
         purchaseDate.setDate(this.setDateStructure(purchaseDate.getFullYear() + 1))}
 
-      this.setState({transactions { transactionPurchaseDate : this.purchaseDate}})
+      this.setState({transactions.transactionPurchaseDate : this.purchaseDate})
     })
   }
 
 
-  // getPurchaseCycles() {
-  //   this.state.account.transactions.map((t, index) =>
-  //     t.bill == "Yes" || t.transactionPurchaseDate >= Date.now() ? this.state.account.transactions.needToPurchase(t, index) : this.state.account.transactions.wantToPurchase(t, index)
-  //   )
-  // }
+  getPurchaseCycles() {
+    this.state.account.transactions.map((t, index) =>
+      t.bill == "Yes" || t.transactionPurchaseDate <= Date.now() ? this.state.account.transactions.needToPurchase(t) : this.state.account.transactions.wantToPurchase(t)
+    )
+  }
   //
-  // needToPurchase() {
-  //   // Get a copy of all transactions from getPurchaseCycles
-  //   // orderBy transaction date and show the next 4 weeks of transactions.
-  //   this.state.account.transactions.orderBy()
-  // }
+  needToPurchase() {
+    // Get a copy of all transactions from getPurchaseCycles
+    // orderBy transaction date and show the next 4 weeks of transactions.
+    t.orderby(t.transactionPurchaseDate).filter(
+      if t.transactionPurchaseDate <== setDateStructure(Date.now())
+        var cycleAmount = <th>Cycle {}</th>
+    )
 
-  // wantToPurchase() {
-  //
-  // }
+  }
+
+  wantToPurchase() {
+
+  }
 
   render() {
     return (
@@ -165,6 +170,7 @@ class App extends Component {
                 transactionData={this.state.account.transactions}
                 bankData={this.state.account}
                 incomeData={this.state.income}
+                allData={this.state}
               />
             </div>
           </div>
