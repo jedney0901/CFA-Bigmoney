@@ -10,17 +10,7 @@ class TransactionDisp extends Component {
 
 
 
-  // getPurchaseCycles() {
-  //   // Need to filter all bills and transactionData items together and then filter them if they are reocurring.
-  //   // This needs to prioritise each item by date and then group them by each week with a heading that says 'Week or Month as a grouping type'
-  //   // This then needs to be fed into a scrolling dashboard which the user can see.
-  //   var purchaseData = purchaseData.filter( =>
-  //   transactionData.date && billsData.date =< Date.now()
-  //
-  //   var transactionData = this.props.transactionData
-  //   var billsData = this.props.billsData
-  //   )
-  // }
+
 
   categoriseData() {
 
@@ -53,7 +43,6 @@ render() {
       <div>
         <TopTenTransactions
           transactionData={this.props.transactionData}/>
-        {this.renderPrevTransactions}
       </div>
 
     )

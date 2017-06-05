@@ -60,41 +60,95 @@ class App extends Component {
 
   componentDidMount() {
     this.getTransactionData()
+    const date = new Date();
+    console.log(date);
+    console.log(this.setDateStructure(date));
+    this.getUpComingBills();
   };
 
-
-  getTransactionData() {
-    this.setState({ account: { transactions: this.transactionData }})
+// CRUD functions
+  createNewTransaction() {
+    const transactions = {...this.state.account.transactions}
+    this.setState({ transactions });
   }
-
-  // createFutureTransaction() {
-  //   const transactions = {...this.state.account.transactions}
-  //   this.setState({ transactions });
-  // }
 
   updatePurchaseTransaction() {
     // Update a current purchaseTransaction whether it's a need to pay or a want to pay.
     // 1. Get a copy of all transactions.
     // findByOne and provide a form which allows them to edit the params incl, purchase date OR priority level, desc, type etc...
+    // setState  and bind function to be passed down to components.
+  }
+
+  deletePurchaseTransaction() {
 
   }
 
-  updatePreviousTransaction() {
-    // Get a copy of all of the current TopTenTransactions
-    // Grab a transaction by the transaction ID and create an edit formslac including ability to add reocurring params, transaction type.
-    // Need to bind this function so it can be passed down to the transaction component
-    // Update the transaction and setState auto close modal.
-
+  getTransactionData() {
+    this.setState({ account: { transactions: this.transactionData }})
   }
 
+  // End CRUD functions
 
-  // setObjectId() {
-  //   if _id == ""
-  //     this.setState({ })
+  // getLast10Transactions() {
+  //   this.state.account.transactions.slice(0, 10).map((t, index) => )
   // }
 
+  getUpComingBills() {
+    var newarray = this.state.account.transactions.slice(0, 10).filter((b) => {
+      return b.bill === "Yes" || b.frequencyOfTransaction !== "Once off"
+    })
+    console.log(newarray)
+  }
+  // return
+  // <ul>
+  //   <li>{b.transaction.transactionPurchaseDate}</li>
+  //   <li>{b.transaction.amount}</li>
+  //   <li>{b.transaction.Description}</li>
+  // </ul>
+// Sets the date structure to dd/mm/yyyyy
+  setDateStructure(purchaseDate) {
+    var d = purchaseDate;
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
+    return curr_date + "/" + curr_month + "/" + curr_year;
+  }
 
 
+  setNextBillDate() {
+    const transactions = this.state.account.transactions
+    const purchaseDate = transaction.transactionPurchaseDate
+
+    transactions.map((transaction) => {
+      if (transactions.frequencyOfTransaction === "Weekly") {
+        purchaseDate.setDate(this.setDateStructure(purchaseDate.getDate() + 7))}
+
+      else if (transactions.frequencyOfTransaction === "Monthly") {
+        purchaseDate.setDate(this.setDateStructure(purchaseDate.getMonth() + 1))}
+
+      else if(transactions.frequencyOfTransaction === "Yearly") {
+        purchaseDate.setDate(this.setDateStructure(purchaseDate.getFullYear() + 1))}
+
+      this.setState({transactions { transactionPurchaseDate : this.purchaseDate}})
+    })
+  }
+
+
+  // getPurchaseCycles() {
+  //   this.state.account.transactions.map((t, index) =>
+  //     t.bill == "Yes" || t.transactionPurchaseDate >= Date.now() ? this.state.account.transactions.needToPurchase(t, index) : this.state.account.transactions.wantToPurchase(t, index)
+  //   )
+  // }
+  //
+  // needToPurchase() {
+  //   // Get a copy of all transactions from getPurchaseCycles
+  //   // orderBy transaction date and show the next 4 weeks of transactions.
+  //   this.state.account.transactions.orderBy()
+  // }
+
+  // wantToPurchase() {
+  //
+  // }
 
   render() {
     return (
