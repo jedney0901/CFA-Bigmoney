@@ -1,185 +1,124 @@
 import React, { Component } from 'react';
-import { Modal } from 'react-bootstrap';
-import { Form, Text, Select, Checkbox } from 'react-form'
+import { Form, FormGroup, Button, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
 
 class CreateTransaction extends Component {
 
-  handleCreate(event) {
-    event.preventDefault();
 
-    this.props.createTransaction(this.refs.createInput.value);
+  handleValue(event) {
+    console.log(event)
   }
 
-  // setTransactionType() {
-  //   if !bill || !transactionPurchaseDate
-  //     return (
-  //       <div>
-  //         <h6>Transaction Priorty</h6>
-  //         <Select
-  //           field='transactionPriority'
-  //           placeholder = {this.props.transactionData.transactionPriority || 'Select'}
-  //           options={[{
-  //                 label: 'Low priorty',
-  //                 value: 'Low priority'
-  //           }, {
-  //                 label: 'Medium priority',
-  //                 value: 'Medium priority'
-  //           }, {
-  //                 label: 'High priority',
-  //                 value: 'High priority'
-  //           }]}
-  //         />
-  //       </div>
-  //     )
-  // }
+  handleCreate(event) {
+    event.preventDefault();
+    console.log('Get em')
+    const transaction = {
+
+      description: this.description.value,
+      amount: this.amount.value,
+      frequencyOfTransaction: this.frequencyOfTransaction.value,
+      transactionCategory: this.transactionCategory.value,
+      // bill: this.bill.value,
+      transactionPriority: this.transactionPriority.value,
+      transactionPurchaseDate: this.transactionPurchaseDate.value,
+    }
+    console.log(this.transactionCategory)
+    // this.props.createNewTransaction(this.ref.createInput.value);
+  }
 
 
 
-
-render() {
-
+  render () {
     return (
-      <Modal>
-        <Form
-          onSubmit={submitForm}
+      <Form onSubmit={(e) => this.handleCreate(e)}>
+        <FormGroup>
+          <ControlLabel>Description</ControlLabel>
+          <FormControl
+            id="description"
+            type="text"
+            label="Description"
+            ref={(input) => this.description = input}
+            placeholder= 'Give a description'>
+          </FormControl>
+        </FormGroup>
 
-          Validating your form is super easy, just use the `validate` life-cycle method
-          validate={values => {
-            const { amount, transactionCategory, transactionPurchaseDate, transactionPriority, bill, transactionFrequency } = values
+        <FormGroup>
+          <ControlLabel>Amount</ControlLabel>
+          <FormControl
+            id="amount"
+            type="text"
+            label="Amount"
+            ref={(input) => this.amount = input}
+            placeholder='Enter an amount'>
+          </FormControl>
+        </FormGroup>
 
-            return {
-              description: !name ? 'A name is required' : undefined,
-              amount: !amount? 'Please specify an amount' : undefined,
-              transactionCategory: !transactionCategory ? 'Select a transaction category' : undefined,
-              transactionPriority: !transactionPriority ? 'A status is required' : null,
-              trsanctionPurchaseDate: ,
-              bill: ,
-              transactionFrequency: ,
-            }
-          }}
+        <FormGroup controlId="formControlsSelect">
+          <ControlLabel>Select Category</ControlLabel>
+          <FormControl
+            componentClass="select"
+            placeholder= "Select a Category"
+            ref={(input) => this.transactionCategory = input}
+          >
+            <option value="select">select</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bills">Bills</option>
+            <option value="Food">Food</option>
+            <option value="Groceries">Groceries</option>
+            <option value="Weekend fun">Weekend fun</option>
+            <option value="Everyday purchase">Everyday purchase</option>
+          </FormControl>
+        </FormGroup>
 
-          // If validation fails then it gives the user the below message:
-          onValidationFail={() => {
-            window.alert('There is something wrong with your form!  Please check for any required values and try again :)')
-          }}
+        <ControlLabel>Is this a bill?</ControlLabel>
+        <Checkbox
+          id="bill"
+          onChange={this.handleValue}
+          value="No"
+          ref={(input) => this.Bill = input}
         >
+          Is this a bill?
+        </Checkbox>
 
 
-          <div>
-            <h6>Transaction Description</h6>
-            <Text
-              refs={(input) =>this.description = input}
-              field='description'
-              placeholder= {this.props.account.transactionData.description || 'Give a description'}
-            />
-          </div>
 
-          <div>
-            <h6>Transaction Amount</h6>
-            <Text
-              refs={(input) =>this.amount = input}
-              field='amount'
-              placeholder= {this.props.transactionData.amount || 'Amount'}
-            />
-          </div>
+        <FormGroup controlId="formControlsSelect">
+          <ControlLabel>How often does this occur?</ControlLabel>
+          <FormControl componentClass="select" placeholder="Select Category" ref={(input) => this.frequencyOfTransaction = input}>
+            <option value="Weekly">select</option>
+            <option value="Fortnightly">Entertainment</option>
+            <option value="Monthlhy">Bills</option>
+            <option value="Every 6 months">Food</option>
+            <option value="Yearly">Groceries</option>
+            <option value="Weekend fun">Weekend fun</option>
+            <option value="Everyday purchase">Everyday purchase</option>
+          </FormControl>
+        </FormGroup>
 
-          <div>
-            <h6>Transaction Priorty</h6>
-            <Select
-              refs={(input) =>this.transactionCategory = input}
-              field='transactionCategory'
-              placeholder = {this.props.transactionData.transactionCategory || 'Select'}
-              options={[{
-                    label: 'Entertainment',
-                    value: 'Entertainment'
-              }, {
-                    label: 'Bills',
-                    value: 'Bills'
-              }, {
-                    label: 'Food',
-                    value: 'Food'
-              }, {
-                    label: 'Groceries',
-                    value: 'Groceries'
-              }, {
-                    label: 'Weekend fun',
-                    value: 'Weekend fun'
-              }, {
-                    label: 'Everyday purchase',
-                    value: 'Everyday purchase'
-              }]}
-            />
-          </div>
-          <h6>Is this a recurring bill?</h6>
-          <Checkbox
-            refs={(input) =>this.bill = input}
-            field='bill'
-          />
+        <FormGroup
+          id="transactionPurchaseDate"
+          type="Transaction Purchase Date"
+          label="Transaction Purchase Date"
+          placeholder="When do you want to purchase this by?"
+          ref={(input) => this.transactionPurchaseDate = input}>
 
-          {/*Need to add functionality that says if it is a recurring bill then the frequency of Transaction gets added.  */}
+        </FormGroup>
 
-          <div>
-            <h6>Frequency of Transaction</h6>
-            <Select
-              refs={(input) =>this.transactionFrequency = input}
-              placeholder='Select'
-              field='transactionFrequency'
-              options={[{
-                    label: 'Weekly',
-                    value: 'Weekly'
-              }, {
-                    label: 'Fortnightly',
-                    value: 'Fortnightly'
-              }, {
-                    label: 'Monthly',
-                    value: 'Monthly'
-              }, {
-                    label: 'Every 6 months',
-                    value: 'Every 6 months'
-              }, {
-                    label: 'Yearly',
-                    value: 'Yearly'
-              }
-              ]}
-            />
-          </div>
+        <FormGroup controlId="formControlsSelect">
+          <ControlLabel>How often does this occur?</ControlLabel>
+          <FormControl componentClass="select" placeholder="Select Category" ref="transactionPriority">
+            <option value="select">select</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </FormControl>
+        </FormGroup>
 
-          {/* If total risidual amount is too small to be able to purchase it within the required amount of time then they must adjust their budget */}
-
-          <div>
-            <h6>Do you have to buy this by a certain date?</h6>
-            <Select
-              refs={(input) =>this.transactionPurchaseDate = input}
-              field='transactionPurchaseDate'
-              // options= Need to add in date picker options and make sure that it fits in with the current format.
-            />
-          </div>
-
-          {/* Need to add in functionality to say that if there is a date then priority = total amount/total weekly cycles = low || med || high priority */}
-
-          <div>
-            <h6>Transaction Priorty</h6>
-            <Select
-              refs={(input) =>this.transactionPriority = input}
-              field='transactionPriority'
-              placeholder = {this.props.transactionData.transactionPriority || 'Select'}
-              options={[{
-                    label: 'Low priorty',
-                    value: 'Low priority'
-              }, {
-                    label: 'Medium priority',
-                    value: 'Medium priority'
-              }, {
-                    label: 'High priority',
-                    value: 'High priority'
-              }]}
-            />
-          </div>
-
-        </Form>
-      </Modal>
+        <Button type="submit">
+          Submit
+        </Button>
+    </Form>
     )
   }
 }
 
-export default TopTenTransactions;
+export default CreateTransaction;

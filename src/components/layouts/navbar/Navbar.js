@@ -15,9 +15,6 @@ class MainNav extends Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav>
-            <NavItem eventKey={1} href="#">Link</NavItem>
-          </Nav>
           <Nav pullRight>
             <NavItem eventKey={1} href="#">MyMoney</NavItem>
             <NavItem eventKey={2} href="#">MyBudget</NavItem>

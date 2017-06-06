@@ -4,6 +4,7 @@ import Navbar from '../layouts/navbar/Navbar'
 import AccountSum from '../subcomponents/AccountSum'
 import transactionData from '../../data/transactionData'
 import BudgetDash from '../pages/BudgetDash'
+import ModalForm from '../forms/ModalForm'
 
 // var income = this.state.income.weeklyPay + this.state.income.weeklyTax
 // var totalSalary = (income * 52) * 1.095
@@ -39,13 +40,6 @@ class App extends Component {
           }
         ]
       },
-      superannuation: {
-        _id: "",
-        superId: 51222014929,
-        accountId: 51423,
-        superBalance: 4951,
-        salarySacrifice: 0,
-      },
       income: {
         _id: "",
         employerId: 1470,
@@ -59,46 +53,49 @@ class App extends Component {
 
     this.createNewTransaction = this.createNewTransaction.bind(this);
     this.updatePurchaseTransaction = this.updatePurchaseTransaction.bind(this);
-    this.setDate = this.setDate.bind(this);
-
-
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
   componentDidMount() {
     this.getTransactionData()
     const date = new Date();
-    console.log(date);
-    console.log(this.setDateStructure(date));
-    this.getUpComingBills();
+    this.getNeedToPurchase()
+    // this.getUpComingBills();
   };
 
 // CRUD functions
-  createNewTransaction(transactionValues) {
+  createNewTransaction(transaction) {
     const transactions = {...this.state.account.transactions}
     this.state.account.transactions.push({
-      transactions: transactions
+      transactions: transaction
     })
-    this.setState({ transactions: transactions})
+    this.setState({ transactions: transactions })
   }
 
+  // editFunction
+  handleEdit() {
+    this.setState({
+      isEditing: true
+    });
+  }
+
+  // const transaction = {
+  //   description: this.description.value
+  //   amount: this.amount.value
+  //   transactionCategory: this.transactionCategory.value
+  //   transactionPriority: this.transactionPriority.value
+  //   trsanctionPurchaseDate: this.transactionPurchaseDate.value
+  //   transactionFrequency: this.transactionFrequency.value
+  // }
   updatePurchaseTransaction() {
 
-    const transaction = {
-      description: this.description.value
-      amount: this.amount.value
-      transactionCategory: this.transactionCategory.value
-      transactionPriority: this.transactionPriority.value
-      trsanctionPurchaseDate: this.trsanctionPurchaseDate.value
-      transactionFrequency: this.transactionFrequency.value
-    }
+  }
 
     // Update a current purchaseTransaction whether it's a need to pay or a want to pay.
     // 1. Get a copy of all transactions.
     // findByOne and provide a form which allows them to edit the params incl, purchase date OR priority level, desc, type etc...
     // setState  and bind function to be passed down to components.
-
-
-  }
 
   deletePurchaseTransaction() {
   }
@@ -109,19 +106,12 @@ class App extends Component {
 
   // End CRUD functions
 
-  getUpComingBills() {
+  getNeedToPurchase() {
     var newarray = this.state.account.transactions.slice(0, 10).filter((b) => {
       return b.bill === "Yes" || b.frequencyOfTransaction !== "Once off"
     })
-    console.log(newarray)
+    console.log(newarray, "Hello")
   }
-  // return
-  // <ul>
-  //   <li>{b.transaction.transactionPurchaseDate}</li>
-  //   <li>{b.transaction.amount}</li>
-  //   <li>{b.transaction.Description}</li>
-  // </ul>
-
 
 // Sets the date structure to dd/mm/yyyyy
   setDateStructure(purchaseDate) {
@@ -132,7 +122,6 @@ class App extends Component {
     return curr_date + "/" + curr_month + "/" + curr_year;
   }
 
-
 // This is part of the datepicker NPM package. Need to confirm whether this will be able to be used in conjunction to when creating/editing transactions.
   handleDateChange(date) {
     this.setState({
@@ -140,10 +129,9 @@ class App extends Component {
     });
   }
 
-
   setNextBillDate() {
     const transactions = this.state.account.transactions
-    const purchaseDate = transaction.transactionPurchaseDate
+    const purchaseDate = transactions.transactionPurchaseDate
 
     transactions.map((transaction) => {
       if (transactions.frequencyOfTransaction === "Weekly") {
@@ -158,26 +146,26 @@ class App extends Component {
       else if(transactions.frequencyOfTransaction === "Yearly") {
         purchaseDate.setDate(this.setDateStructure(purchaseDate.getFullYear() + 1))}
 
-      this.setState({transactions.transactionPurchaseDate : this.purchaseDate})
+      // this.setState({ transactions.transactionPurchaseDate : this.purchaseDate })
     })
   }
 
 
   getPurchaseCycles() {
     this.state.account.transactions.map((t, index) =>
-      t.bill == "Yes" || t.transactionPurchaseDate <= Date.now() ? this.state.account.transactions.needToPurchase(t) : this.state.account.transactions.wantToPurchase(t)
+      t.bill === "Yes" || t.transactionPurchaseDate <= Date.now() ? this.state.account.transactions.needToPurchase(t) : this.state.account.transactions.wantToPurchase(t)
     )
   }
   //
-  needToPurchase() {
-    // Get a copy of all transactions from getPurchaseCycles
-    // orderBy transaction date and show the next 4 weeks of transactions.
-    t.orderby(t.transactionPurchaseDate).filter(
-      if t.transactionPurchaseDate <== setDateStructure(Date.now())
-        var cycleAmount = <th>Cycle {}</th>
-    )
-
-  }
+  // needToPurchase() {
+  //   // transactions passed in through the getPurchaseCycles transactions from getPurchaseCycles
+  //   // orderBy transaction date and show the next 4 weeks of transactions.
+  //   t.orderby(t.transactionPurchaseDate).filter(
+  //     if t.transactionPurchaseDate <== setDateStructure(Date.now())
+  //       var cycleAmount = <th>Cycle {}</th>
+  //   )
+  //
+  // }
 
   wantToPurchase() {
 
@@ -193,14 +181,13 @@ class App extends Component {
           />
           <div className="container">
             <div className="row">
-              Hello world
               <BudgetDash
                 transactionData={this.state.account.transactions}
                 createTransaction={this.createNewTransaction.bind(this)}
                 updateTransaction={this.updatePurchaseTransaction.bind(this)}
-                setDate={this.setDate.bind(this)}
-                bankData={this.state.account}
-                incomeData={this.state.income}
+                handleEdit={this.handleEdit.bind(this)}
+                upComingNeedToPay={this.getNeedToPurchase.bind(this)}
+                setDate={this.handleDateChange.bind(this)}
                 allData={this.state}
               />
             </div>
