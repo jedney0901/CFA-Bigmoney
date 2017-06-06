@@ -33,7 +33,7 @@ class App extends Component {
             bill: "No",
             frequencyOfTransaction: "One off",
             transactionType: "Select",
-            transactionGroup: "Select",
+            transactionCategory: "Select",
             transactionPriority: "Choose the level of income you want to assign",
             transactionPurchaseDate: "Choose the date you want to purchase this by"
           }
@@ -56,6 +56,12 @@ class App extends Component {
         frequencyOfPay: "Fortnightly"
       },
     }
+
+    this.createNewTransaction = this.createNewTransaction.bind(this);
+    this.updatePurchaseTransaction = this.updatePurchaseTransaction.bind(this);
+    this.setDate = this.setDate.bind(this);
+
+
   }
 
   componentDidMount() {
@@ -67,20 +73,34 @@ class App extends Component {
   };
 
 // CRUD functions
-  createNewTransaction() {
+  createNewTransaction(transactionValues) {
     const transactions = {...this.state.account.transactions}
-    this.setState({ transactions });
+    this.state.account.transactions.push({
+      transactions: transactions
+    })
+    this.setState({ transactions: transactions})
   }
 
   updatePurchaseTransaction() {
+
+    const transaction = {
+      description: this.description.value
+      amount: this.amount.value
+      transactionCategory: this.transactionCategory.value
+      transactionPriority: this.transactionPriority.value
+      trsanctionPurchaseDate: this.trsanctionPurchaseDate.value
+      transactionFrequency: this.transactionFrequency.value
+    }
+
     // Update a current purchaseTransaction whether it's a need to pay or a want to pay.
     // 1. Get a copy of all transactions.
     // findByOne and provide a form which allows them to edit the params incl, purchase date OR priority level, desc, type etc...
     // setState  and bind function to be passed down to components.
+
+
   }
 
   deletePurchaseTransaction() {
-
   }
 
   getTransactionData() {
@@ -113,6 +133,14 @@ class App extends Component {
   }
 
 
+// This is part of the datepicker NPM package. Need to confirm whether this will be able to be used in conjunction to when creating/editing transactions.
+  handleDateChange(date) {
+    this.setState({
+      transactionPurchaseDate: date
+    });
+  }
+
+
   setNextBillDate() {
     const transactions = this.state.account.transactions
     const purchaseDate = transaction.transactionPurchaseDate
@@ -121,8 +149,8 @@ class App extends Component {
       if (transactions.frequencyOfTransaction === "Weekly") {
         purchaseDate.setDate(this.setDateStructure(purchaseDate.getDate() + 7))}
 
-      else if (transactions.frequencyOfTransaction === "Monthly") {
-        purchaseDate.setDate(this.setDateStructure(purchaseDate.getMonth() + 1))}
+      else if (transactions.frequencyOfTransaction === "Fortnightly") {
+        purchaseDate.setDate(this.setDateStructure(purchaseDate.getDate() + 14))}
 
         else if (transactions.frequencyOfTransaction === "Monthly") {
           purchaseDate.setDate(this.setDateStructure(purchaseDate.getMonth() + 1))}
@@ -168,6 +196,9 @@ class App extends Component {
               Hello world
               <BudgetDash
                 transactionData={this.state.account.transactions}
+                createTransaction={this.createNewTransaction.bind(this)}
+                updateTransaction={this.updatePurchaseTransaction.bind(this)}
+                setDate={this.setDate.bind(this)}
                 bankData={this.state.account}
                 incomeData={this.state.income}
                 allData={this.state}

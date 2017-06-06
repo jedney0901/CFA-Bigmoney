@@ -11,13 +11,14 @@ class TransactionDisp extends Component {
       clicked: false
     }
 
+// All my binds to be able to pass down functionality
     this.handleClick = this.handleClick.bind(this);
 
   }
 
-  handleClick() {
+  editTransaction() {
     this.setState({
-      clicked: true
+      clicked: false
     });
   }
 
@@ -49,10 +50,12 @@ render() {
       <div>
         <TopTenTransactions
           transactionData={this.props.transactionData}/>
+        <Button
+          onClick={this.handleClick} "Create purchase"
+          createTransaction={this.props.createTransaction}
+        />
+        {this.state.clicked ? <CreateTransaction /> : null}
 
-        <Button onClick={this.handleClick} />
-        {this.state.clicked ? <NewComponent /> : null}
-        
       </div>
 
     )
