@@ -6,7 +6,7 @@ class AccountSum extends Component {
   render() {
 
     return (
-      <div className="col-md-3">hello world</div>
+      <div className="col-md-3" height="200px">hello world</div>
     );
   }
 }
