@@ -34,6 +34,12 @@ The key outcomes of this meeting were to:
 - The best form of communication and a plan to meet up and discuss the project as certain elements were defined and achieved. We agreed that Trello would be the best way to define the user cases and follow our development plan as it progressed. 
 - Expectations around client and developer including the expectations for the code and who owns it.
 
+![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
+
+![homepage](https://user-images.githubusercontent.com/25731546/26930201-f80bca66-4c9f-11e7-8725-fbf289a62695.png)
+
+![mybudget](https://user-images.githubusercontent.com/25731546/26930203-f8422da4-4c9f-11e7-9a36-2fe575752146.png)
+
 #### Meeting 2:
 
 The second meeting was organised just over a week later due to unforeseen circumstances which didn't provide us a lot of time to be able to fianlise the design and how the processes.
