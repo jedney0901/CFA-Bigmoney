@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import CreateTransaction from './createTransaction';
+import CreateTransaction from './CreateTransaction';
 
 
 
@@ -38,7 +38,9 @@ class ModalForm extends Component {
           </Modal.Header>
 
           <Modal.Body>
-            <CreateTransaction />
+            <CreateTransaction
+              createTransaction={this.props.createTransaction}
+            />
           </Modal.Body>
 
           <Modal.Footer>

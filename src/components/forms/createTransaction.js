@@ -2,63 +2,83 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Button, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
 
 class CreateTransaction extends Component {
-
-
-  handleValue(event) {
-    console.log(event)
+  constructor(props) {
+    super(props);
+    this.state = {
+      billValue: false
+    }
   }
 
   handleCreate(event) {
     event.preventDefault();
-    console.log('Get em')
-    const transaction = {
+    let billString = this.bill.value;
+    console.log(billString);
+    // converts string to boolean
+    let convertBool = (billString == 'true')
 
+    console.log(convertBool);
+    let transaction = {
       description: this.description.value,
       amount: this.amount.value,
       frequencyOfTransaction: this.frequencyOfTransaction.value,
       transactionCategory: this.transactionCategory.value,
-      // bill: this.bill.value,
+      bill: this.bill.value,
       transactionPriority: this.transactionPriority.value,
       transactionPurchaseDate: this.transactionPurchaseDate.value,
     }
-    console.log(this.transactionCategory)
-    // this.props.createNewTransaction(this.ref.createInput.value);
+    console.log(transaction)
+    this.props.createTransaction(transaction)
   }
 
+  handleBillChange() {
 
+    let billInput = document.getElementById('isBill');
+    if(billInput.checked){
+      this.setState({ billValue: true })
+      console.log(billInput.value);
+    } else {
+      this.setState({ billValue: false })
+      console.log(billInput.value);
+    }
+  }
 
   render () {
     return (
-      <Form onSubmit={(e) => this.handleCreate(e)}>
-        <FormGroup>
-          <ControlLabel>Description</ControlLabel>
-          <FormControl
-            id="description"
-            type="text"
-            label="Description"
-            ref={(input) => this.description = input}
-            placeholder= 'Give a description'>
-          </FormControl>
-        </FormGroup>
+      <form className="Form">
 
-        <FormGroup>
-          <ControlLabel>Amount</ControlLabel>
-          <FormControl
-            id="amount"
+        <div className="form-group">
+          <label>Description:</label>
+          <input
+            name="description"
             type="text"
-            label="Amount"
-            ref={(input) => this.amount = input}
-            placeholder='Enter an amount'>
-          </FormControl>
-        </FormGroup>
+            className="form-control"
+            ref={(input) => { this.description = input }}
+          />
+        </div>
 
-        <FormGroup controlId="formControlsSelect">
-          <ControlLabel>Select Category</ControlLabel>
-          <FormControl
-            componentClass="select"
-            placeholder= "Select a Category"
-            ref={(input) => this.transactionCategory = input}
-          >
+        <div className="form-group">
+          <label>Amount:</label>
+          <input
+            name="amount"
+            type="number"
+            className="form-control"
+            ref={(input) => { this.amount = input }}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Purchase Date:</label>
+          <input
+            name="amount"
+            type="number"
+            className="form-control"
+            ref={(input) => { this.transactionPurchaseDate = input }}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Select a category for this transaction:</label>
+          <select className="form-control" ref={(input) => { this.transactionCategory = input }}>
             <option value="select">select</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Bills">Bills</option>
@@ -66,57 +86,47 @@ class CreateTransaction extends Component {
             <option value="Groceries">Groceries</option>
             <option value="Weekend fun">Weekend fun</option>
             <option value="Everyday purchase">Everyday purchase</option>
-          </FormControl>
-        </FormGroup>
+          </select>
+        </div>
 
-        <ControlLabel>Is this a bill?</ControlLabel>
-        <Checkbox
-          id="bill"
-          onChange={this.handleValue}
-          value="No"
-          ref={(input) => this.Bill = input}
-        >
-          Is this a bill?
-        </Checkbox>
+        <div className="form-check">
+          <label>Is Bill:</label>
+          <input
+            id="isBill"
+            name="isBill"
+            className="form-check-input"
+            type="checkbox"
+            value={this.state.billValue}
+            onChange={this.handleBillChange.bind(this)}
+            ref={(input) => { this.bill = input }}
+          />
+        </div>
 
-
-
-        <FormGroup controlId="formControlsSelect">
-          <ControlLabel>How often does this occur?</ControlLabel>
-          <FormControl componentClass="select" placeholder="Select Category" ref={(input) => this.frequencyOfTransaction = input}>
+        <div className="select">
+          <label>How often does this bill occur?:</label>
+          <select className="form-control" ref={(input) => { this.frequencyOfTransaction = input }}>
             <option value="Weekly">select</option>
             <option value="Fortnightly">Entertainment</option>
             <option value="Monthlhy">Bills</option>
             <option value="Every 6 months">Food</option>
             <option value="Yearly">Groceries</option>
-            <option value="Weekend fun">Weekend fun</option>
-            <option value="Everyday purchase">Everyday purchase</option>
-          </FormControl>
-        </FormGroup>
+          </select>
+        </div>
 
-        <FormGroup
-          id="transactionPurchaseDate"
-          type="Transaction Purchase Date"
-          label="Transaction Purchase Date"
-          placeholder="When do you want to purchase this by?"
-          ref={(input) => this.transactionPurchaseDate = input}>
+        <div className="select">
+          <label >What level of priority would you put this purchase?:</label>
+          <select className="form-control" ref={(input) => { this.transactionPriority = input }}>
+            <option value="Select">select</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
 
-        </FormGroup>
-
-        <FormGroup controlId="formControlsSelect">
-          <ControlLabel>How often does this occur?</ControlLabel>
-          <FormControl componentClass="select" placeholder="Select Category" ref="transactionPriority">
-            <option value="select">select</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </FormControl>
-        </FormGroup>
-
-        <Button type="submit">
-          Submit
-        </Button>
-    </Form>
+        <div>
+          <input className="btn btn-primary" type="submit" value="Submit" onClick={(e) => this.props.handleCreate(e)} />
+        </div>
+      </form>
     )
   }
 }
