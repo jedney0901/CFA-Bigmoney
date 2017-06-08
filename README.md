@@ -14,6 +14,8 @@ The goal: To deliver a level of functionality consistent with an MVP level conce
 
 The Belief: Research shows that most Australians have low to medium budgeting. The vast majority of research respondents indicated that they either don't budget or budget in a no systematic manner ie in their heads.  Whilst the underlying causes of this are various one of the key reasons is that the budgeting process is tedious and requires extensive ongoing maintenance - people simply don't pursue the process over time , irrespective of their intentions.  Similarly , people with low financial literacy do not know how to start or are overwhelmed with the process.  This app provides a new method for budgeting and increasing financial literacy by shifting the budgeting process from an expense analysis approach to a desire driven model and ensures that sustaining s budget is as easy as one simple step of prioritising the current set of wants.
 
+As we had limited time to develop the application, we decided to try and make a dynamic version of the application using React  as a proof of concept where we could look at developing a fully fledged backend if we decided to pursue the project further. 
+
 
 ### Development stages:
 
@@ -24,12 +26,12 @@ As I wanted to see whether I could take on a project with a real life client so 
 1. MRI scanning tests for training Doctors and identifying and understanding different types of scans.
 2. Budgeting app aimed at helping young people understand all elements of their business.
 
-As I had limited time I tried to organise meetings as quickly as I could and unfortunately it was a lot harder to be able to get the potential clients to sit down so we could discuss the project. The person doing the MRI scanning was in the end unavailable to participate in the project as he was looking at developing the application through an agency which left the budgeting app to develop.
+As I had limited time I tried to organise meetings as quickly as I could and unfortunately it was a lot harder to be able to get the potential clients to sit down so we could discuss the project. The person doing the MRI scanning was in the end unavailable to participate in the project as he was looking at developing the application through an agency which left the budgeting app to develop. I understood the degree of difficulty that would be involved developing a budgeting app but underestimated the time it would take to define each different component and start building them out through a purely react front end.
 
 
 #### First Meeting 1:
 
-For the first meeting I sat down with the client and went through the structure of his idea and how it would work. The first part of what we discussed was a) what did the app need to solve and b) what was his vision for an MVP version of that app. We ran through the user cases and how this application would be used in the future. 
+For the first meeting I sat down with the client and went through the structure of his idea and how it would work. The first part of what we discussed was a) what did the app need to solve and b) what was his vision for an MVP version of that app. We ran through the user cases and how this application would be used in the future.
 
 The key outcomes of this meeting were to:
 
@@ -63,10 +65,36 @@ In this meeting we discussiong the:
 
 <img width="270" alt="trello screenshot" src="https://user-images.githubusercontent.com/25731546/26929367-c16ae9cc-4c9c-11e7-99dd-a996db7f06a9.png">
 
+Note: It was around this time I was starting to get worried that the core requirements for the assignment weren't completely defined prior to me starting the development around them. This took a lot of 
+
 
 #### Meeting 3 - Final Meeting:
 
 The final meeting was aimed at discussing where we were currently at with the MVP product and what would be next in the development stages. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The atual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
 
+Key takeaways:
 
+Looking at my assignment now, there are quite a few things wrong with the way I approached it from the begininning... but it's not all that bad.
+
+Here are some key take aways:
+
+- Don't get appendicitus just prior to the assignment
+
+Appendix are weak.
+
+- Managing nested state in your react application and why Redux would have been the smart option... because managing state is a PAIN.
+
+Redux was one of those things I would have loved to develop into my application but I consistently put it on the backburner based on the concept that I thought it would have been too hard to complete in time. Looking back, I think I spent too much time developing 'functionality' and not developing the functional core components of the assignment leaving me no time to actually stop and implement the most important elements.
+
+The key reason why Redux was so important for me is because my components were nested too deeply and managing and tracking certain data that I was passing through would get to between 4-5 levels causing headaches.
+
+Redux allows you to have a 'store' where you can store and call your state into components depending on where they are located in your application. This removes the stress behind developing and passing through functions, making sure that they are in the correct area and also passing through the data that needs to be fed into those functions. I did learn a lot about how to build and develop different types of functions and wish that they could have been translated onto my page, but I will have to continue understanding how you need to call these functions and where. 
+
+
+- Defining the component structure prior to starting development including defining the file structure
+
+I believe that if I had completely scoped out how the look and feel would be including the processes behind the budgeting element then I would have a very different looking appliction.
+
+
+- Developing my functions using a step by step process, need to take a step back from writing the functions all at once and go through ensuring that a) I can receive the data b) the function produces the correct output c) the parameters I am passing through are completely connected d) 
 
