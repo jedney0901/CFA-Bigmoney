@@ -5,7 +5,6 @@ import AccountSum from '../subcomponents/AccountSum'
 import transactionData from '../../data/TransactionData'
 import billsData from '../../data/BillsData'
 import BudgetDash from '../pages/BudgetDash'
-import ModalForm from '../forms/ModalForm'
 
 class App extends Component {
   constructor(props) {
@@ -23,18 +22,19 @@ class App extends Component {
         accountNumber: 264023237,
         accountBalance: 2423,
         accountName: "Joshua Edney",
-        transactions: [
-          {
-            amount: 0,
-            description: "Enter a description",
-            frequencyOfTransaction: "Once off",
-            transactionCategory: "Select",
-            transactionPriority: "Choose the level of income you want to assign",
-            transactionPurchaseDate: "Choose the date you want to purchase this by"
-          }
-        ],
-        bills: this.billsData
       },
+      transactions: [
+        {
+          _id: 0,
+          amount: 0,
+          description: "Enter a description",
+          frequencyOfTransaction: "Once off",
+          transactionCategory: "Select",
+          transactionPriority: "Choose the level of income you want to assign",
+          transactionPurchaseDate: "Choose the date you want to purchase this by"
+        }
+      ],
+      bills: this.billsData,
       income: {
         _id: "507f191e810c19729de581gd",
         employerId: 1470,
@@ -47,38 +47,47 @@ class App extends Component {
     }
 
     this.createNewTransaction = this.createNewTransaction.bind(this);
+    this.editTransaction = this.editTransaction.bind(this);
+
   }
 
   componentDidMount() {
     this.getTransactionData()
-    console.log(this.state.account.bills)
+    console.log(this.state.bills)
     const transactionPurchaseDate = new Date();
   };
 
 // Load transaction and bills data
   getTransactionData() {
-    this.setState({ account: { transactions: this.transactionData }})
-  }
-
-  getBillsData() {
-    this.setState({ account: { bills: this.billsData }})
+    this.setState({
+      account: {
+        _id: "507f191e810c19729de860ea",
+        userId: 1111,
+        bankId: 12341234,
+        accountNumber: 264023237,
+        accountBalance: 2423,
+        accountName: "Joshua Edney",
+      },
+      transactions: this.transactionData,
+      bills: this.billsData
+    })
   }
 
   // Create function
-  createNewTransaction(transaction)  {
+  createNewTransaction(transaction) {
     console.log("transaction:", transaction)
-    const transactions = [transaction, ...this.state.account.transactions]
-  //    this.state.account.transactions.push(transaction);
-    this.setState({ account: {transactions: transactions }})
+    const transactions = [transaction, ...this.state.transactions]
+    this.setState({ transactions: transactions })
   }
 
-  findTransaction() {
-    const transactions = this.state.account.transactions
+  editTransaction(transaction) {
+    console.log("edittransaction:", transaction)
+    const transactions = [...this.state.transactions]
+    console.log(transactions)
+    this.setState(transaction.transaction._id, {transactionCategory: {$set: 'transaction.transactionCategory' }});
+  }
 
-    var transaction = transactions.filter((t) => {
-        return t.description == t.description || t.date == t.date
-      })
-    }
+// End CRUD functions
 
   getBankData() {
     const account = this.state.account
@@ -92,13 +101,12 @@ class App extends Component {
   }
 
   toggleBill() {
-    console.log('before', this.state.account.transactions[0].bill);
-    this.state.account.transactions[0].bill = !this.state.account.transactions[0].bill;
+    console.log('before', this.state.transactions[0].bill);
+    this.state.transactions[0].bill = !this.state.transactions[0].bill;
     this.forceUpdate();
-    console.log('after', this.state.account.transactions[0].bill);
+    console.log('after', this.state.transactions[0].bill);
   }
 
-  // End CRUD functions
 
 // Sets the date structure to dd/mm/yyyyy
   setDateStructure(purchaseDate) {
@@ -111,7 +119,7 @@ class App extends Component {
 
 // This is part of the datepicker NPM package. Need to confirm whether this will be able to be used in conjunction to when creating/editing transactions.
   setNextBillDate() {
-    const transactions = this.state.account.transactions
+    const transactions = this.state.transactions
     const purchaseDate = transactions.transactionPurchaseDate
 
     transactions.map((transaction) => {
@@ -131,23 +139,21 @@ class App extends Component {
     })
   }
 
-
   render() {
+    console.log('hello', this.state.bills)
     return (
       <div className="row">
         <Navbar/>
-        <div className="col-xs 2 col-sm-2 col-md-2">
-          {/* <AccountSum
-            bankData={this.state.account.accountBalance}
-          /> */}
-        </div>
-        <div className="col-xs-10 col-sm-10 col-md-10">
-          <BudgetDash
-            transactionData={this.state.account.transactions}
-            billsData={this.state.account.bills}
-            createTransaction={(transaction) => this.createNewTransaction(transaction)}
-            toggleBill={this.toggleBill.bind(this)}
-          />
+        <div className="container">
+          <div className="col-xs-10 col-sm-10 col-md-10">
+            <BudgetDash
+              createTransaction={(transaction) => this.createNewTransaction(transaction)}
+              editTransaction={(transaction) => this.editTransaction(transaction)}
+              transactionData={this.state.transactions}
+              billsData={this.state.bills}
+              toggleBill={this.toggleBill.bind(this)}
+            />
+          </div>
         </div>
       </div>
     )

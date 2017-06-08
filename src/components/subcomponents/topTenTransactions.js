@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
+import EditForm from '../forms/EditForm'
 
 class TopTenTransactions extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isEditing: null
+    }
+  }
+
+  toggleEditing(t, index) {
+     this.setState({ editing: index });
+   }
 
 render() {
 
@@ -14,7 +26,7 @@ render() {
               <th className="col-xs-5 col-sm-2 col-md-2">Date</th>
               <th className="col-xs-1 col-sm-1 col-md-1">Amount</th>
               <th className="col-xs-12 col-sm-6 col-md-6">Description</th>
-              <th className="col-xs-1 col-sm-1 col-md-1">Categorise</th>
+              <th className="col-xs-1  col-sm-1 col-md-1">Categorise</th>
             </tr>
           </thead>
           <tbody>
@@ -23,7 +35,12 @@ render() {
                 <td>{t.transactionPurchaseDate}</td>
                 <td>{t.amount}</td>
                 <td>{t.description}</td>
-                <td><button>{t.transactionCategory || 'Categorise'}</button></td>
+                <td>
+                  <EditForm
+                    editTransaction={this.props.editTransaction}
+                    transactionid={t._id}
+                  />
+                </td>
               </tr>
             )}
           </tbody>
