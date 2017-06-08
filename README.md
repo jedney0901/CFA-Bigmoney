@@ -34,7 +34,7 @@ The key outcomes of this meeting were to:
 - The best form of communication and a plan to meet up and discuss the project as certain elements were defined and achieved. We agreed that Trello would be the best way to define the user cases and follow our development plan as it progressed. 
 - Expectations around client and developer including the expectations for the code and who owns it.
 
-#### First Meeting 2:
+#### Meeting 2:
 
 The second meeting was organised just over a week later due to unforeseen circumstances which didn't provide us a lot of time to be able to fianlise the design and how the processes.
 
@@ -43,5 +43,9 @@ In this meeting we discussiong the:
 - First Initial [Insert designs here] app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
 
-+ 1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could 
- 
+1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could put money aside a portion of their money depending on the level of priority and total cost of that item. This was a concept which I put forward but on feedback from the client this was not the initial system he was looking for and he asked for the weekend to better understand how he wanted the process to work.
+
+2. An item based system. This would be based on capping the total amount of items that they could put in their budgeting and designate a different portion of their disposable income based on the total amount of items available.
+
+#### Meeting 3:
+
