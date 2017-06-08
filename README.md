@@ -52,4 +52,11 @@ In this meeting we discussiong the:
 
 #### Meeting 3 - Final Meeting:
 
-The final meeting was aimed at discussing where we were currently at with the MVP product and what would be next in the development stages. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. 
+The final meeting was aimed at discussing where we were currently at with the MVP product and what would be next in the development stages. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The atual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
+
+
+![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
+
+![photo 1](https://user-images.githubusercontent.com/25731546/26929864-951e31d8-4c9e-11e7-98aa-a7948abc6435.jpg)
+
+<img width="699" alt="budgeting_element_-_various_steps_on_big_money_app_planner___trello" src="https://user-images.githubusercontent.com/25731546/26929963-0a0e4a5a-4c9f-11e7-930d-b446ed7b3361.png">
