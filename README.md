@@ -12,6 +12,9 @@ The idea: to try and develop an app similar to the pocketbook app but using a re
 
 The goal: To deliver a level of functionality consistent with an MVP level concept which we could then explore further after testing and reviewing.
 
+The Belief: Research shows that most Australians have low to medium budgeting. The vast majority of research respondents indicated that they either don't budget or budget in a no systematic manner ie in their heads.  Whilst the underlying causes of this are various one of the key reasons is that the budgeting process is tedious and requires extensive ongoing maintenance - people simply don't pursue the process over time , irrespective of their intentions.  Similarly , people with low financial literacy do not know how to start or are overwhelmed with the process.  This app provides a new method for budgeting and increasing financial literacy by shifting the budgeting process from an expense analysis approach to a desire driven model and ensures that sustaining s budget is as easy as one simple step of prioritising the current set of wants.
+
+
 ### Development stages:
 
 #### First communication - LinkedIn Post :
