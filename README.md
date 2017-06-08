@@ -42,4 +42,4 @@ In this meeting we discussiong the:
 
 - First Initial [Insert designs here] app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
- 1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could 
+ * 1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could 
