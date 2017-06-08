@@ -84,7 +84,7 @@ class App extends Component {
     console.log("edittransaction:", transaction)
     const transactions = [...this.state.transactions]
     console.log(transactions)
-    this.setState(transaction.transaction._id, {transactionCategory: {$set: 'transaction.transactionCategory' }});
+    // this.setState(transaction.transaction._id, {transactionCategory: { 'transaction.transactionCategory' }});
   }
 
 // End CRUD functions
@@ -145,7 +145,7 @@ class App extends Component {
       <div className="row">
         <Navbar/>
         <div className="container">
-          <div className="col-xs-10 col-sm-10 col-md-10">
+          <div className="col-xs-12 col-sm-12 col-md-12">
             <BudgetDash
               createTransaction={(transaction) => this.createNewTransaction(transaction)}
               editTransaction={(transaction) => this.editTransaction(transaction)}

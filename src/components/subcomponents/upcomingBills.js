@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
 class UpComingBills extends Component {
-  
+
   componentWillReceiveProps(nextProps) {
     console.log('next props:', nextProps)
   }
@@ -14,17 +14,19 @@ class UpComingBills extends Component {
         <Table responsive striped bordered>
           <thead>
             <tr>
-              <th className="col-xs-6 col-sm-3 col-md-3">Date</th>
-              <th className="col-xs-6 col-sm-3 col-md-3">Amount</th>
-              <th className="col-xs-12 col-sm-6 col-md-6">Description</th>
+              <th className="col-xs-2 col-sm-3 col-md-1">Amount</th>
+              <th className="col-xs-2 col-sm-3 col-md-1">Date</th>
+              <th className="col-xs-3 col-sm-6 col-md-5">Description</th>
+              <th className="col-xs-4 col-sm-3 col-md-4">Next Date of Payment</th>
             </tr>
           </thead>
           <tbody>
             {this.props.billsData.map((b, index) =>
               <tr key={index}>
-                <td>{b.amount}</td>
+                <td>${b.amount}</td>
                 <td>{b.transactionPurchaseDate}</td>
                 <td>{b.description}</td>
+                <td>21/10/2017</td>
               </tr>
             )}
           </tbody>

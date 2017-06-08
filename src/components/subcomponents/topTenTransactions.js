@@ -23,8 +23,8 @@ render() {
         <Table responsive striped bordered>
           <thead>
             <tr>
-              <th className="col-xs-5 col-sm-2 col-md-2">Date</th>
               <th className="col-xs-1 col-sm-1 col-md-1">Amount</th>
+              <th className="col-xs-5 col-sm-2 col-md-2">Date</th>
               <th className="col-xs-12 col-sm-6 col-md-6">Description</th>
               <th className="col-xs-1  col-sm-1 col-md-1">Categorise</th>
             </tr>
@@ -32,13 +32,14 @@ render() {
           <tbody>
             {this.props.transactionData.slice(0, 10).map((t, index) =>
               <tr key={index}>
+                <td>${t.amount}</td>
                 <td>{t.transactionPurchaseDate}</td>
-                <td>{t.amount}</td>
                 <td>{t.description}</td>
                 <td>
                   <EditForm
                     editTransaction={this.props.editTransaction}
                     transactionid={t._id}
+                    transactionData={this.props.transactionData}
                   />
                 </td>
               </tr>
