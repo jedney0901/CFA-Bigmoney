@@ -14,7 +14,9 @@ The goal: To deliver a level of functionality consistent with an MVP level conce
 
 Research shows that most Australians have low to medium budgeting. The vast majority of research respondents indicated that they either don't budget or budget in a no systematic manner ie in their heads.  Whilst the underlying causes of this are various one of the key reasons is that the budgeting process is tedious and requires extensive ongoing maintenance - people simply don't pursue the process over time , irrespective of their intentions.  Similarly , people with low financial literacy do not know how to start or are overwhelmed with the process.  This app provides a new method for budgeting and increasing financial literacy by shifting the budgeting process from an expense analysis approach to a desire driven model and ensures that sustaining a budget is as easy as one simple step of prioritising the current set of wants.
 
-As we had limited time to develop the application, we decided to try and make a dynamic version of the application using React  as a proof of concept where we could look at developing a fully fledged backend if we decided to pursue the project further. This involved originally an app with two separate core components being the MyBudget and MyWealth elements.
+### The Technology
+
+I discussed with the client the technology stack that we would look at using, as a start I advised that it would have to be Javascript based but in regards to what we would use to develop would be based on what best serves the idea's concept. As we had limited time to develop the application, we decided to try and make a dynamic version of the application to best showcase the idea as a proof of concept where we could look at developing a complete backend with the required functionality if we decided to pursue the project further. This involved originally an app with two separate core components being the MyBudget and MyWealth elements which would be able to showcase their bills, needs and wants and provide a engaging and illustrative
 
 
 ### Development stages:
@@ -58,6 +60,13 @@ The key outcomes of this meeting were to:
 ### First review of the rules behind the application:
 ![budgeting tool structure](https://user-images.githubusercontent.com/25731546/26932462-deec0c74-4ca6-11e7-84f3-ea255b582cbb.png)
 
+### Trello screen 1 - Projet Breakdown
+<img width="1127" alt="big money - screen1" src="https://user-images.githubusercontent.com/25731546/26953108-d947ec62-4ceb-11e7-9995-8b8be4ef0398.png">
+
+### Trello screen 2 - Project Breakdown
+<img width="1121" alt="big money - screen2" src="https://user-images.githubusercontent.com/25731546/26953109-d94a1eb0-4ceb-11e7-8364-382ebb38a453.png">
+
+
 #### Meeting 2:
 
 The second meeting was organised just over a week later due to unforeseen circumstances which didn't provide us a lot of time to be able to fianlise the design and how the processes.
@@ -87,7 +96,7 @@ Note: It was around this time I was starting to get worried that the core requir
 
 #### Meeting 3 - Final Meeting:
 
-The final meeting was aimed at discussing where we were currently at with the MVP product and what would be next in the development stages. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The atual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
+For the final review of the project, there were some key elements which we discussed around where the MVP product was at and what would be next to help this project get to the next stage of development. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The atual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
 
 Key takeaways:
 
