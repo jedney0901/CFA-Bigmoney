@@ -43,21 +43,5 @@ In this meeting we discussiong the:
 - First Initial [Insert designs here] app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
 
- 1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could 
++ 1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could 
  
- 1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
