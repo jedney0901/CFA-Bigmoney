@@ -62,10 +62,9 @@ render() {
             transactionData={this.props.transactionData}/>
         </div>
         <div className="col-md-12">
-          {/* <UpComingBills
-            transactionData={this.props.transactionData}
-            needToPurchase={this.props.needToPurchase}
-          /> */}
+          <UpComingBills
+            billsData={this.props.billsData}
+          />
         </div>
       </div>
     )

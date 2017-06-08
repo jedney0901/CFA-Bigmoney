@@ -3,13 +3,9 @@ import '../../styles/App.css';
 import Navbar from '../layouts/navbar/Navbar'
 import AccountSum from '../subcomponents/AccountSum'
 import transactionData from '../../data/TransactionData'
+import billsData from '../../data/BillsData'
 import BudgetDash from '../pages/BudgetDash'
 import ModalForm from '../forms/ModalForm'
-
-// var income = this.state.income.weeklyPay + this.state.income.weeklyTax
-// var totalSalary = (income * 52) * 1.095
-// var totalTax = this.state.income.weeklyTax * 52
-
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +13,7 @@ class App extends Component {
 
   // console.log('data', transactionData);
   this.transactionData = transactionData
+  this.billsData = billsData
 
     this.state = {
       account: {
@@ -30,13 +27,13 @@ class App extends Component {
           {
             amount: 0,
             description: "Enter a description",
-            bill: false,
-            frequencyOfTransaction: "One off",
+            frequencyOfTransaction: "Once off",
             transactionCategory: "Select",
             transactionPriority: "Choose the level of income you want to assign",
             transactionPurchaseDate: "Choose the date you want to purchase this by"
           }
-        ]
+        ],
+        bills: this.billsData
       },
       income: {
         _id: "507f191e810c19729de581gd",
@@ -54,8 +51,26 @@ class App extends Component {
 
   componentDidMount() {
     this.getTransactionData()
+    console.log(this.state.account.bills)
     const transactionPurchaseDate = new Date();
   };
+
+// Load transaction and bills data
+  getTransactionData() {
+    this.setState({ account: { transactions: this.transactionData }})
+  }
+
+  getBillsData() {
+    this.setState({ account: { bills: this.billsData }})
+  }
+
+  // Create function
+  createNewTransaction(transaction)  {
+    console.log("transaction:", transaction)
+    const transactions = [transaction, ...this.state.account.transactions]
+  //    this.state.account.transactions.push(transaction);
+    this.setState({ account: {transactions: transactions }})
+  }
 
   findTransaction() {
     const transactions = this.state.account.transactions
@@ -65,26 +80,22 @@ class App extends Component {
       })
     }
 
+  getBankData() {
+    const account = this.state.account
+
+    account.map((index, a) => {
+      <ul>
+        <li>{a.bankId}</li>
+        <li>{a.accountBalance}</li>
+      </ul>
+    })
+  }
+
   toggleBill() {
     console.log('before', this.state.account.transactions[0].bill);
     this.state.account.transactions[0].bill = !this.state.account.transactions[0].bill;
     this.forceUpdate();
     console.log('after', this.state.account.transactions[0].bill);
-  }
-
-// Create function
-  createNewTransaction(transaction) {
-    const transactions = {...this.state.account.transactions}
-    var transaction = transaction
-    this.state.account.transactions.push({
-      transactions: transaction
-    })
-    console.log(transaction)
-    this.setState({ transactions: transactions })
-  }
-
-  getTransactionData() {
-    this.setState({ account: { transactions: this.transactionData }})
   }
 
   // End CRUD functions
@@ -116,15 +127,8 @@ class App extends Component {
       else if(transactions.frequencyOfTransaction === "Yearly" && transactions.transactionPurchaseDate <= Date.now()) {
         purchaseDate.setDate(this.setDateStructure(purchaseDate.getFullYear() + 1))
       }
-      this.setState({ transactions.transactionPurchaseDate : this.purchaseDate })
+      // this.setState({ transactions.transactionPurchaseDate : this.purchaseDate })
     })
-  }
-
-
-  getPurchaseCycles() {
-    this.state.account.transactions.map((t, index) =>
-      t.bill === "Yes" || t.transactionPurchaseDate <= Date.now() ? this.state.account.transactions.needToPurchase(t) : this.state.account.transactions.wantToPurchase(t)
-    )
   }
 
 
@@ -133,15 +137,15 @@ class App extends Component {
       <div className="row">
         <Navbar/>
         <div className="col-xs 2 col-sm-2 col-md-2">
-          <AccountSum
+          {/* <AccountSum
             bankData={this.state.account.accountBalance}
-          />
+          /> */}
         </div>
         <div className="col-xs-10 col-sm-10 col-md-10">
           <BudgetDash
             transactionData={this.state.account.transactions}
-            createTransaction={this.createNewTransaction.bind(this, transaction)}
-            // handleEdit={this.handleEdit.bind(this)}
+            billsData={this.state.account.bills}
+            createTransaction={(transaction) => this.createNewTransaction(transaction)}
             toggleBill={this.toggleBill.bind(this)}
           />
         </div>

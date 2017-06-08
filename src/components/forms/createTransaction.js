@@ -7,6 +7,8 @@ class CreateTransaction extends Component {
     this.state = {
       billValue: false
     }
+
+    this.handleCreate = this.handleCreate.bind(this)
   }
 
   handleCreate(event) {
@@ -31,7 +33,6 @@ class CreateTransaction extends Component {
   }
 
   handleBillChange() {
-
     let billInput = document.getElementById('isBill');
     if(billInput.checked){
       this.setState({ billValue: true })
@@ -124,7 +125,7 @@ class CreateTransaction extends Component {
         </div>
 
         <div>
-          <input className="btn btn-primary" type="submit" value="Submit" onClick={(e) => this.props.handleCreate(e)} />
+          <input className="btn btn-primary" type="submit" value="Submit" onClick={(e) => this.handleCreate(e)} />
         </div>
       </form>
     )

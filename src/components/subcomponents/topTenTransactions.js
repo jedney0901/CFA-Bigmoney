@@ -14,7 +14,7 @@ render() {
               <th className="col-xs-5 col-sm-2 col-md-2">Date</th>
               <th className="col-xs-1 col-sm-1 col-md-1">Amount</th>
               <th className="col-xs-12 col-sm-6 col-md-6">Description</th>
-              <th className="col-xs-1 col-sm-1 col-md-1">Date</th>
+              <th className="col-xs-1 col-sm-1 col-md-1">Categorise</th>
             </tr>
           </thead>
           <tbody>

@@ -3,16 +3,6 @@ import { Table } from 'react-bootstrap';
 
 class UpComingBills extends Component {
 
-  componentDidMount() {
-    this.getNeedToPurchase()
-  }
-
-  getNeedToPurchase() {
-  var bills = this.props.transactionData.filter((b) => {
-      return b.bill === true || b.frequencyOfTransaction !== "Once off"
-    })
-  }
-
 
 render() {
 
@@ -28,10 +18,10 @@ render() {
             </tr>
           </thead>
           <tbody>
-            {this.transactionData.slice(0, 10).map((b, index) =>
+            {this.props.billsData.slice(0, 10).map((b, index) =>
               <tr key={index}>
-                <td>{b.transactionPurchaseDate}</td>
                 <td>{b.amount}</td>
+                <td>{b.transactionPurchaseDate}</td>
                 <td>{b.description}</td>
               </tr>
             )}
