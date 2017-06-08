@@ -57,6 +57,4 @@ The final meeting was aimed at discussing where we were currently at with the MV
 
 ![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
 
-![photo 1](https://user-images.githubusercontent.com/25731546/26929864-951e31d8-4c9e-11e7-98aa-a7948abc6435.jpg)
-
 <img width="699" alt="budgeting_element_-_various_steps_on_big_money_app_planner___trello" src="https://user-images.githubusercontent.com/25731546/26929963-0a0e4a5a-4c9f-11e7-930d-b446ed7b3361.png">
