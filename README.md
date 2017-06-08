@@ -12,9 +12,9 @@ The idea: to try and develop an app similar to the pocketbook app but using a re
 
 The goal: To deliver a level of functionality consistent with an MVP level concept which we could then explore further after testing and reviewing.
 
-The Belief: Research shows that most Australians have low to medium budgeting. The vast majority of research respondents indicated that they either don't budget or budget in a no systematic manner ie in their heads.  Whilst the underlying causes of this are various one of the key reasons is that the budgeting process is tedious and requires extensive ongoing maintenance - people simply don't pursue the process over time , irrespective of their intentions.  Similarly , people with low financial literacy do not know how to start or are overwhelmed with the process.  This app provides a new method for budgeting and increasing financial literacy by shifting the budgeting process from an expense analysis approach to a desire driven model and ensures that sustaining s budget is as easy as one simple step of prioritising the current set of wants.
+Research shows that most Australians have low to medium budgeting. The vast majority of research respondents indicated that they either don't budget or budget in a no systematic manner ie in their heads.  Whilst the underlying causes of this are various one of the key reasons is that the budgeting process is tedious and requires extensive ongoing maintenance - people simply don't pursue the process over time , irrespective of their intentions.  Similarly , people with low financial literacy do not know how to start or are overwhelmed with the process.  This app provides a new method for budgeting and increasing financial literacy by shifting the budgeting process from an expense analysis approach to a desire driven model and ensures that sustaining a budget is as easy as one simple step of prioritising the current set of wants.
 
-As we had limited time to develop the application, we decided to try and make a dynamic version of the application using React  as a proof of concept where we could look at developing a fully fledged backend if we decided to pursue the project further. 
+As we had limited time to develop the application, we decided to try and make a dynamic version of the application using React  as a proof of concept where we could look at developing a fully fledged backend if we decided to pursue the project further. This involved originally an app with two separate core components being the MyBudget and MyWealth elements.
 
 
 ### Development stages:
@@ -83,8 +83,7 @@ In this meeting we discussed the:
 
 <img width="270" alt="trello screenshot" src="https://user-images.githubusercontent.com/25731546/26929367-c16ae9cc-4c9c-11e7-99dd-a996db7f06a9.png">
 
-Note: It was around this time I was starting to get worried that the core requirements for the assignment weren't completely defined prior to me starting the development around them. This took a lot of 
-
+Note: It was around this time I was starting to get worried that the core requirements for the assignment weren't completely defined prior to me starting the development around them. This slowly became a much larger issue more and more as development continued where there were certain holes in how the application would be able to function.
 
 #### Meeting 3 - Final Meeting:
 
@@ -100,7 +99,7 @@ Here are some key take aways:
 
 Appendix are weak.
 
-- Managing nested state in your react application and why Redux would have been the smart option... because managing state is a PAIN.
+- Managing nested state in your react application and why Redux would have been the smart option... because managing nested state is a PAIN.
 
 Redux was one of those things I would have loved to develop into my application but I consistently put it on the backburner based on the concept that I thought it would have been too hard to complete in time. Looking back, I think I spent too much time developing 'functionality' and not developing and implementing the functional core components of the assignment leaving me no time to actually stop and implement the most important elements.
 
@@ -112,10 +111,9 @@ The other reason why Redux was so important is because it helps you define your 
 
 - Defining the component structure prior to starting development including defining the file structure
 
-I believe that if I had completely scoped out how the look and feel would be including the processes behind the budgeting element then I would have a very different looking appliction.
-
+I believe that if I had completely scoped out how the look and feel would be including the processes behind the budgeting element then I would have a very different looking appliction than what I have currently. Understanding how state worked properly was a learning curve for me as I saw the benefits and the issues with nested state elements and how it can compound issues further on down the track. Passing data through your state and managing it can take a lot of work to get the exact outcome that your looking for from your state but if you are able to have a strong state structure and ability to call data that doesn't clutter your code/cause spaghetti functionality then it saves you a lot of hassle.
 
 - Developing my functions using a step by step process, need to take a step back from writing the functions all at once and go through ensuring that a) I can receive the data b) the function produces the correct output c) the parameters I am passing through are completely connected.
 
-This ties back into the how we manage and
+This ties back into the how we manage and use out state, structure our data and call functions throughout different components of your app. Ensuring that you are following a standard process of developing your functions on a step-by-step basic is essential when you are developing more complex functions in your app. What I found that I was doing is writing out a complete function and then trying to make the puzzle pieces pull together, what I needed to be doing is grabbing each piece one at a time and connecting them in a way that made sense in the context of the situation.
 
