@@ -39,6 +39,11 @@ The key outcomes of this meeting were to:
 - The best form of communication and a plan to meet up and discuss the project as certain elements were defined and achieved. We agreed that Trello would be the best way to define the user cases and follow our development plan as it progressed. 
 - Expectations around client and developer including the expectations for the code and who owns it.
 
+<img width="1032" alt="at - email1" src="https://user-images.githubusercontent.com/25731546/26932128-f260739a-4ca5-11e7-8df2-c73c8b0b6748.png">
+<img width="1028" alt="je email 1" src="https://user-images.githubusercontent.com/25731546/26932130-f2685650-4ca5-11e7-88fb-cf2ff367c9cf.png">
+
+
+
 ![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
 
 ![homepage](https://user-images.githubusercontent.com/25731546/26930201-f80bca66-4c9f-11e7-8725-fbf289a62695.png)
@@ -53,6 +58,8 @@ In this meeting we discussiong the:
 
 - First Initial [Insert designs here] app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
+
+<img width="1000" alt="at email 2" src="https://user-images.githubusercontent.com/25731546/26932129-f2648d9a-4ca5-11e7-8d69-2c24b6549cf9.png">
 
 <img width="699" alt="budgeting_element_-_various_steps_on_big_money_app_planner___trello" src="https://user-images.githubusercontent.com/25731546/26929963-0a0e4a5a-4c9f-11e7-930d-b446ed7b3361.png">
 
@@ -84,17 +91,20 @@ Appendix are weak.
 
 - Managing nested state in your react application and why Redux would have been the smart option... because managing state is a PAIN.
 
-Redux was one of those things I would have loved to develop into my application but I consistently put it on the backburner based on the concept that I thought it would have been too hard to complete in time. Looking back, I think I spent too much time developing 'functionality' and not developing the functional core components of the assignment leaving me no time to actually stop and implement the most important elements.
+Redux was one of those things I would have loved to develop into my application but I consistently put it on the backburner based on the concept that I thought it would have been too hard to complete in time. Looking back, I think I spent too much time developing 'functionality' and not developing and implementing the functional core components of the assignment leaving me no time to actually stop and implement the most important elements.
 
 The key reason why Redux was so important for me is because my components were nested too deeply and managing and tracking certain data that I was passing through would get to between 4-5 levels causing headaches.
 
-Redux allows you to have a 'store' where you can store and call your state into components depending on where they are located in your application. This removes the stress behind developing and passing through functions, making sure that they are in the correct area and also passing through the data that needs to be fed into those functions. I did learn a lot about how to build and develop different types of functions and wish that they could have been translated onto my page, but I will have to continue understanding how you need to call these functions and where. 
+Redux allows you to have a 'store' where you can store and call your state into components depending on where they are located in your application. This removes the stress behind developing and passing through functions, making sure that they are in the correct area and also passing through the data that needs to be fed into those functions. I did learn a lot about how to build and develop different types of functions and wish that they could have been translated onto my page, but I will have to continue understanding how you need to call these functions and where. This would have made developing and implementing stateless components in my application a lot easier rather than a lot of the cluttered and built up code that I have sitting in my different core components.
 
+The other reason why Redux was so important is because it helps you define your basic stateless components and build out all the required stateful components when you require them. 
 
 - Defining the component structure prior to starting development including defining the file structure
 
 I believe that if I had completely scoped out how the look and feel would be including the processes behind the budgeting element then I would have a very different looking appliction.
 
 
-- Developing my functions using a step by step process, need to take a step back from writing the functions all at once and go through ensuring that a) I can receive the data b) the function produces the correct output c) the parameters I am passing through are completely connected d) 
+- Developing my functions using a step by step process, need to take a step back from writing the functions all at once and go through ensuring that a) I can receive the data b) the function produces the correct output c) the parameters I am passing through are completely connected.
+
+This ties back into the how we manage and
 
