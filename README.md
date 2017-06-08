@@ -39,30 +39,41 @@ The key outcomes of this meeting were to:
 - The best form of communication and a plan to meet up and discuss the project as certain elements were defined and achieved. We agreed that Trello would be the best way to define the user cases and follow our development plan as it progressed. 
 - Expectations around client and developer including the expectations for the code and who owns it.
 
+### Defining the first steps
 <img width="1032" alt="at - email1" src="https://user-images.githubusercontent.com/25731546/26932128-f260739a-4ca5-11e7-8df2-c73c8b0b6748.png">
+
+### Reviewing the concepts from Andrew and providing feedback around what we could look at doing
 <img width="1028" alt="je email 1" src="https://user-images.githubusercontent.com/25731546/26932130-f2685650-4ca5-11e7-88fb-cf2ff367c9cf.png">
 
 
-
+### Defining the core goal of what the app will achieve:
 ![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
 
+### Wireframe designs of the HomePage:
 ![homepage](https://user-images.githubusercontent.com/25731546/26930201-f80bca66-4c9f-11e7-8725-fbf289a62695.png)
 
+### Wireframe designs of the MyBudget area:
 ![mybudget](https://user-images.githubusercontent.com/25731546/26930203-f8422da4-4c9f-11e7-9a36-2fe575752146.png)
+
+### First review of the rules behind the application:
+![budgeting tool structure](https://user-images.githubusercontent.com/25731546/26932462-deec0c74-4ca6-11e7-84f3-ea255b582cbb.png)
 
 #### Meeting 2:
 
 The second meeting was organised just over a week later due to unforeseen circumstances which didn't provide us a lot of time to be able to fianlise the design and how the processes.
 
-In this meeting we discussiong the:
+In this meeting we discussed the:
 
 - First Initial [Insert designs here] app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
 
+### Attempt to define the processes and the application design
 <img width="1000" alt="at email 2" src="https://user-images.githubusercontent.com/25731546/26932129-f2648d9a-4ca5-11e7-8d69-2c24b6549cf9.png">
 
+### Defining the different values for the schema
 <img width="699" alt="budgeting_element_-_various_steps_on_big_money_app_planner___trello" src="https://user-images.githubusercontent.com/25731546/26929963-0a0e4a5a-4c9f-11e7-930d-b446ed7b3361.png">
 
+### High level design of the rules process
 ![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
 
 
