@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import TopTenTransactions from '../subcomponents/TopTenTransactions';
 import UpComingBills from '../subcomponents/UpComingBills';
-import CreateTransaction from '../forms/CreateTransaction';
-import ModalForm from '../forms/ModalForm'
-import { Button } from 'react-bootstrap';
-
-
-
+import CreateForm from '../forms/CreateForm'
 
 class BudgetDash extends Component {
   constructor(props) {
     super(props)
-
-  }
-
-  getTransaction() {
 
   }
 
@@ -23,7 +14,6 @@ class BudgetDash extends Component {
       t.bill === "Yes" || t.transactionPurchaseDate <= Date.now() ? this.state.account.transactions.needToPurchase(t) : this.state.account.transactions.wantToPurchase(t)
     )
   }
-
 
   needToPurchase(t) {
     return
@@ -38,32 +28,30 @@ class BudgetDash extends Component {
         {t.transaction.amount}
       </li>
     </ul>
-
-
   }
 
   wantToPurchase() {
 
   }
 
-
-
 render() {
 
     return (
-      <div>
-        <div className="col-md-3">
-          <ModalForm
+      <div className="row">
+        <div className="col-md-1">
+          <CreateForm
             createTransaction={this.props.createTransaction}
           />
         </div>
         <div className="col-md-12">
-          <TopTenTransactions
-            transactionData={this.props.transactionData}/>
-        </div>
-        <div className="col-md-12">
           <UpComingBills
             billsData={this.props.billsData}
+          />
+        </div>
+        <div className="col-md-12">
+          <TopTenTransactions
+            transactionData={this.props.transactionData}
+            editTransaction={this.props.editTransaction}
           />
         </div>
       </div>

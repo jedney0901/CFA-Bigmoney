@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Button, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
 
 class CreateTransaction extends Component {
   constructor(props) {
@@ -7,11 +6,11 @@ class CreateTransaction extends Component {
     this.state = {
       billValue: false
     }
-
     this.handleCreate = this.handleCreate.bind(this)
   }
 
   handleCreate(event) {
+    console.log('hello')
     event.preventDefault();
     let billString = this.bill.value;
     console.log(billString);
@@ -20,6 +19,7 @@ class CreateTransaction extends Component {
 
     console.log(convertBool);
     let transaction = {
+      _id: (new Date()).getTime(),
       description: this.description.value,
       amount: this.amount.value,
       frequencyOfTransaction: this.frequencyOfTransaction.value,
@@ -46,7 +46,6 @@ class CreateTransaction extends Component {
   render () {
     return (
       <form className="Form">
-
         <div className="form-group">
           <label>Description:</label>
           <input
@@ -56,7 +55,6 @@ class CreateTransaction extends Component {
             ref={(input) => { this.description = input }}
           />
         </div>
-
         <div className="form-group">
           <label>Amount:</label>
           <input
@@ -66,7 +64,6 @@ class CreateTransaction extends Component {
             ref={(input) => { this.amount = input }}
           />
         </div>
-
         <div className="form-group">
           <label>Purchase Date:</label>
           <input
@@ -76,10 +73,12 @@ class CreateTransaction extends Component {
             ref={(input) => { this.transactionPurchaseDate = input }}
           />
         </div>
-
         <div className="form-group">
           <label>Select a category for this transaction:</label>
-          <select className="form-control" ref={(input) => { this.transactionCategory = input }}>
+          <select
+            className="form-control"
+            ref={(input) => { this.transactionCategory = input }}
+          >
             <option value="select">select</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Bills">Bills</option>
@@ -89,7 +88,6 @@ class CreateTransaction extends Component {
             <option value="Everyday purchase">Everyday purchase</option>
           </select>
         </div>
-
         <div className="form-check">
           <label>Is Bill:</label>
           <input
@@ -102,10 +100,12 @@ class CreateTransaction extends Component {
             ref={(input) => { this.bill = input }}
           />
         </div>
-
         <div className="select">
           <label>How often does this bill occur?:</label>
-          <select className="form-control" ref={(input) => { this.frequencyOfTransaction = input }}>
+          <select
+            className="form-control"
+            ref={(input) => { this.frequencyOfTransaction = input }}
+          >
             <option value="Weekly">select</option>
             <option value="Fortnightly">Entertainment</option>
             <option value="Monthlhy">Bills</option>
@@ -113,23 +113,24 @@ class CreateTransaction extends Component {
             <option value="Yearly">Groceries</option>
           </select>
         </div>
-
         <div className="select">
           <label >What level of priority would you put this purchase?:</label>
-          <select className="form-control" ref={(input) => { this.transactionPriority = input }}>
+          <select
+            className="form-control"
+            ref={(input) => { this.transactionPriority = input }}
+          >
             <option value="Select">select</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
         </div>
-
         <div>
           <input className="btn btn-primary" type="submit" value="Submit" onClick={(e) => this.handleCreate(e)} />
         </div>
       </form>
-    )
-  }
+      )
+    }
 }
 
 export default CreateTransaction;

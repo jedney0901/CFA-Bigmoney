@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
 class UpComingBills extends Component {
+  
+  componentWillReceiveProps(nextProps) {
+    console.log('next props:', nextProps)
+  }
 
-
-render() {
-
+  render() {
     return (
       <div>
-        <h1>Previous 10 transactions</h1>
+        <h1>Upcoming Bills</h1>
         <Table responsive striped bordered>
           <thead>
             <tr>
@@ -18,7 +20,7 @@ render() {
             </tr>
           </thead>
           <tbody>
-            {this.props.billsData.slice(0, 10).map((b, index) =>
+            {this.props.billsData.map((b, index) =>
               <tr key={index}>
                 <td>{b.amount}</td>
                 <td>{b.transactionPurchaseDate}</td>

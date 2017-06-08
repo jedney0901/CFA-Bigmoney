@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import CreateTransaction from './CreateTransaction';
+import EditTransaction from './EditTransaction';
 
-
-
-class ModalForm extends Component {
+class EditForm extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       show: false
     }
+    this.editTransaction = this.editTransaction.bind(this);
   }
+
+editTransaction(tx) {
+  this.setState({ show: false});
+  tx._id = this.props.transactionid
+  this.props.editTransaction(tx);
+}
 
 
   render() {
     let close = () => this.setState({ show: false});
 
     return (
-      <div className="modal-container" style={{height: 200}}>
+      <div className="modal-container">
         <Button
           bsStyle="primary"
           bsSize="large"
           onClick={() => this.setState({ show: true})}
         >
-          Create Transaction
+          Edit Category
         </Button>
 
         <Modal
@@ -34,12 +39,13 @@ class ModalForm extends Component {
           aria-labelledby="contained-modal-title"
         >
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title">Create a transaction</Modal.Title>
+            <Modal.Title id="contained-modal-title">Edit Categorise</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <CreateTransaction
-              createTransaction={this.props.createTransaction}
+            <EditTransaction
+              editTransaction={(tx) => this.editTransaction(tx)}
+              transactionData={this.props.transactionData}
             />
           </Modal.Body>
 
@@ -53,4 +59,4 @@ class ModalForm extends Component {
   }
 }
 
-export default ModalForm;
+export default EditForm;
