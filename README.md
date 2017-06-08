@@ -43,6 +43,8 @@ In this meeting we discussiong the:
 - First Initial [Insert designs here] app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
 
+<img width="699" alt="budgeting_element_-_various_steps_on_big_money_app_planner___trello" src="https://user-images.githubusercontent.com/25731546/26929963-0a0e4a5a-4c9f-11e7-930d-b446ed7b3361.png">
+
 1. A priority based system. This would use the persons income, them assigning certain transactions from their bank account as bills and assigning a weekly amount to spend on food, groceries etc. Then a certain amount would be set aside where they could put money aside a portion of their money depending on the level of priority and total cost of that item. This was a concept which I put forward but on feedback from the client this was not the initial system he was looking for and he asked for the weekend to better understand how he wanted the process to work.
 
 2. An item based system. This would be based on capping the total amount of items that they could put in their budgeting and designate a different portion of their disposable income based on the total amount of items available. The issue was this was that it would take a lot of different functionality and provide issues when trying to display the data based on the state that I had setup for the assigment. In the end, we agreed to leave it for now and try to see how far we could get with the structure he wanted and if we needed we could adjust the rules around the application after reviewing it further.
@@ -54,7 +56,6 @@ In this meeting we discussiong the:
 
 The final meeting was aimed at discussing where we were currently at with the MVP product and what would be next in the development stages. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The atual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
 
-
 ![photo](https://user-images.githubusercontent.com/25731546/26929866-964ca076-4c9e-11e7-8c26-39ce6ba30560.jpg)
 
-<img width="699" alt="budgeting_element_-_various_steps_on_big_money_app_planner___trello" src="https://user-images.githubusercontent.com/25731546/26929963-0a0e4a5a-4c9f-11e7-930d-b446ed7b3361.png">
+
