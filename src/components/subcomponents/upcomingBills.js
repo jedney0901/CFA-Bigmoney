@@ -2,9 +2,49 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
 class UpComingBills extends Component {
+  constructor(props) {
+  super(props)
+
+  this.state = {
+    nextTransactionDate: "21/1/2017"
+  }
+}
 
   componentWillReceiveProps(nextProps) {
     console.log('next props:', nextProps)
+  }
+
+  componentDidMount(b) {
+    this.setNextBillDate()
+  }
+
+  // Sets the date structure to dd/mm/yyyyy
+    setDateStructure(purchaseDate) {
+      var d = purchaseDate;
+      var curr_date = d.getDate();
+      var curr_month = d.getMonth() + 1;
+      var curr_year = d.getFullYear();
+      return curr_date + "/" + curr_month + "/" + curr_year;
+    }
+
+  setNextBillDate(b) {
+
+    this.props.billsData.map((bills) => {
+      if (bills.frequencyOfTransaction === "Weekly" && bills.transactionPurchaseDate <= Date.now()) {
+        bills.setDate(this.setDateStructure(bills.getDate() + 7))
+      }
+      else if (bills.frequencyOfTransaction === "Fortnightly" && bills.transactionPurchaseDate <= Date.now()) {
+        bills.setDate(this.setDateStructure(bills.getDate() + 14))
+      }
+      else if (bills.frequencyOfTransaction === "Monthly" && bills.transactionPurchaseDate <= Date.now()) {
+        bills.setDate(this.setDateStructure(bills.getMonth() + 1))
+      }
+      else if(bills.frequencyOfTransaction === "Yearly" && bills.transactionPurchaseDate <= Date.now()) {
+        bills.setDate(this.setDateStructure(bills.getFullYear() + 1))
+      }
+      // this.setState({ transactions.transactionPurchaseDate : this.purchaseDate })
+      console.log(bills)
+    })
   }
 
   render() {
@@ -26,7 +66,7 @@ class UpComingBills extends Component {
                 <td>${b.amount}</td>
                 <td>{b.transactionPurchaseDate}</td>
                 <td>{b.description}</td>
-                <td>21/10/2017</td>
+                <td>{this.state.nextTransactionDate}</td>
               </tr>
             )}
           </tbody>
