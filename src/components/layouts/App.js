@@ -84,7 +84,7 @@ class App extends Component {
     console.log("edittransaction:", transaction)
     const transactions = [...this.state.transactions]
     console.log(transactions)
-    this.setState(transaction.transaction._id, {transactionCategory: {$set: 'transaction.transactionCategory' }});
+    // this.setState(transaction.transaction._id, {transactionCategory: { 'transaction.transactionCategory' }});
   }
 
 // End CRUD functions
@@ -142,9 +142,14 @@ class App extends Component {
   render() {
     console.log('hello', this.state.bills)
     return (
-      <div className="row">
+      <div className="container-fluid">
         <Navbar/>
-        <div className="container">
+        <div className="row">
+          <div className="col-xs-2 col-sm-2 col-md-2">
+            <AccountSum
+              createTransaction={(transaction) => this.createNewTransaction(transaction)}
+            />
+          </div>
           <div className="col-xs-10 col-sm-10 col-md-10">
             <BudgetDash
               createTransaction={(transaction) => this.createNewTransaction(transaction)}

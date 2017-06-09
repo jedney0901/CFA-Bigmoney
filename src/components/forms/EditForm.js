@@ -11,12 +11,17 @@ class EditForm extends Component {
     }
     this.editTransaction = this.editTransaction.bind(this);
   }
+  //
+  //
+  // transactionCategory() {
+  //   this.props.transactionData.map((t) =>
+  // }
 
-editTransaction(tx) {
-  this.setState({ show: false});
-  tx._id = this.props.transactionid
-  this.props.editTransaction(tx);
-}
+  editTransaction(tx) {
+    this.setState({ show: false});
+    tx._id = this.props.transactionid
+    this.props.editTransaction(tx);
+  }
 
 
   render() {
@@ -26,10 +31,11 @@ editTransaction(tx) {
       <div className="modal-container">
         <Button
           bsStyle="primary"
-          bsSize="large"
+          bsSize="medium"
           onClick={() => this.setState({ show: true})}
         >
-          Edit Category
+          Categorise
+
         </Button>
 
         <Modal
@@ -45,7 +51,6 @@ editTransaction(tx) {
           <Modal.Body>
             <EditTransaction
               editTransaction={(tx) => this.editTransaction(tx)}
-              transactionData={this.props.transactionData}
             />
           </Modal.Body>
 

@@ -1,13 +1,59 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Chivo', sans-serif;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+margin-left: 50px;
+font-size: 20px;
+}
+
+.navbar  {
+  background: #333333;
+}
+
+.navbar-right {
+  margin-right: 50px;
+  font-size: 20px;
+}
+
+.pushright {
+  margin-left: 150px;;
+}
+
+.btn .btn-primary {
+  background: #C5CDC6;
 }
 
 .BankSummary {
   height: 250px;
-  background: #777777;
-  margin-left: 20px;
-  margin-top: 70%;
+  background: #333333;
   padding-top: 30px;
+  margin-top: 100px;
+  width: 200px;
+  padding-left: 10px;
+  color: white;
+}
+
+.navbar-inverse {
+  background: #333333;
+  backgroun: #333333;
+  height: 100px;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+
+
+.navbar-inverse .navbar-nav >li>a {
+  color: black;
+  font-size: 20px;
+}
+
+#
+
+.navbar-header {
+  color: black;
+  font-size: 20px;
 }
