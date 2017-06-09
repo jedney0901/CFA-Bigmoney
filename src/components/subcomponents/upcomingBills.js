@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
 class UpComingBills extends Component {
+
   constructor(props) {
   super(props)
 
