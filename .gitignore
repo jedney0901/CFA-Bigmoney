@@ -5,11 +5,9 @@
 
 # testing
 /coverage
-/data
 
 # production
 /build
-/data
 
 # misc
 .DS_Store
@@ -17,7 +15,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-/data
 
 npm-debug.log*
 yarn-debug.log*
