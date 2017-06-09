@@ -142,10 +142,15 @@ class App extends Component {
   render() {
     console.log('hello', this.state.bills)
     return (
-      <div className="row">
+      <div className="container-fluid">
         <Navbar/>
-        <div className="container">
-          <div className="col-xs-12 col-sm-12 col-md-12">
+        <div className="row">
+          <div className="col-xs-2 col-sm-2 col-md-2">
+            <AccountSum
+              createTransaction={(transaction) => this.createNewTransaction(transaction)}
+            />
+          </div>
+          <div className="col-xs-10 col-sm-10 col-md-10">
             <BudgetDash
               createTransaction={(transaction) => this.createNewTransaction(transaction)}
               editTransaction={(transaction) => this.editTransaction(transaction)}

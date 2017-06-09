@@ -25,7 +25,7 @@ createTransaction(tx) {
       <div className="modal-container">
         <Button
           bsStyle="primary"
-          bsSize="large"
+          bsSize="medium"
           onClick={() => this.setState({ show: true})}
         >
           Create Transaction
