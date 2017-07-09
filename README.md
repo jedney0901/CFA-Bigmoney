@@ -73,7 +73,7 @@ The second meeting was organised just over a week later due to unforeseen circum
 
 In this meeting we discussed the:
 
-- First Initial [Insert designs here] app design including the layout and how each different element process would work. 
+- First Initial app design including the layout and how each different element process would work. 
 - The budgeting formula and process: This was an element this still had not been finalised and played a large role in how the application would get designed and developed. The key outcome for this was that there were two initial ways we could go about designing the budgeting process:
 
 ### Attempt to define the processes and the application design
