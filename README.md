@@ -96,11 +96,11 @@ Note: It was around this time I was starting to get worried that the core requir
 
 #### Meeting 3 - Final Meeting:
 
-For the final review of the project, there were some key elements which we discussed around where the MVP product was at and what would be next to help this project get to the next stage of development. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The atual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
+For the final review of the project, there were some key elements which we discussed around where the MVP product was at and what would be next to help this project get to the next stage of development. As far as the assignment process and development there are still quite a few issues around how the process will work and the rules which would need to be built into the actual application to ensure that the application achieves it's core goals and also is functional to a certain extent. The actual concept will continue to be developed but I believe that the actual budgeting process needs to be more formalised before proceeding to the final stage of development. 
 
 Key takeaways:
 
-Looking at my assignment now, there are quite a few things wrong with the way I approached it from the begininning... but it's not all that bad.
+Looking at my assignment now, there are quite a few things wrong with the way I approached it from the begininning.
 
 Here are some key take aways:
 
@@ -108,7 +108,7 @@ Here are some key take aways:
 
 Appendix are weak.
 
-- Managing nested state in your react application and why Redux would have been the smart option... because managing nested state is a PAIN.
+- Managing nested state in your react application and why Redux would have been the smart option... because managing nested state is a PAIN and causes serious heartache.
 
 Redux was one of those things I would have loved to develop into my application but I consistently put it on the backburner based on the concept that I thought it would have been too hard to complete in time. Looking back, I think I spent too much time developing 'functionality' and not developing and implementing the functional core components of the assignment leaving me no time to actually stop and implement the most important elements.
 
